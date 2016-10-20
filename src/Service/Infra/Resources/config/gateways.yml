@@ -1,0 +1,11 @@
+services:
+    service.infrastructure.user_authorization_gateway:
+        class: Sidebeep\Service\Infra\Service\UserAuthorization\UserAuthorizationGateway
+        arguments:
+            - '@service.infrastructure.user_authorization_adapter'
+
+    service.infrastructure.user_authorization_adapter:
+        class: Sidebeep\Service\Infra\Service\UserAuthorization\UserAuthorizationAdapter
+        arguments:
+            - '@service.infrastructure.request_handler'
+            - 'https://api.sidebeep.com/user/authorize'

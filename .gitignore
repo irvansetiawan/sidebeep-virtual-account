@@ -1,0 +1,42 @@
+# Build data
+/build/
+
+# PHPUnit
+/app/phpunit.xml
+/phpunit.xml
+
+# Cache, session files and logs
+/var/cache/*
+/var/logs/*
+/var/sessions/*
+!var/cache/.gitkeep
+!var/logs/.gitkeep
+!var/sessions/.gitkeep
+
+# Vendor
+/vendor/
+
+# Bin
+bin/*
+
+# Assets and user uploads
+/web/bundles/
+/web/uploads/
+
+# Assets managed by Bower
+/web/assets/vendor/
+
+# Composer PHAR
+/composer.phar
+
+# dot ENV file
+.env
+
+# rabbitMQ-cli-consumer configuration
+rabbitmq-cli-consumer.conf
+
+# idea
+.idea
+
+#OS Related
+.DS_Store

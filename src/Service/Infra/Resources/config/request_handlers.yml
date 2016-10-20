@@ -1,0 +1,19 @@
+services:
+    service.infrastructure.request_handler:
+        class: Sidebeep\Service\Infra\RequestHandler\Middleware\EventRequestHandler
+        arguments:
+            - '@event_dispatcher'
+            - '@service.infrastructure.guzzle_request_handler'
+
+    service.infrastructure.guzzle_request_handler:
+        class: Sidebeep\Service\Infra\RequestHandler\Middleware\GuzzleRequestHandler
+        arguments:
+            - '@service.infrastructure.guzzle_http_client'
+
+    service.infrastructure.json_response_listener:
+        class: Sidebeep\Service\Infra\RequestHandler\Listener\JsonResponseListener
+        tags:
+            - { name: kernel.event_listener, event: request_handler.received_response, method: onReceivedResponse }
+
+    service.infrastructure.guzzle_http_client:
+        class: GuzzleHttp\Client

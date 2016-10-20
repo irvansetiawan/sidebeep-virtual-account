@@ -1,0 +1,26 @@
+Sidebeep\Service\UI\Response\AuthIdentity:
+    exclusion_policy: ALL
+    read_only: false
+    access_type: property
+
+    properties:
+        accessTokenId:
+            expose: true
+            access_type: property
+            type: string
+            serialized_name: access_token_id
+        clientId:
+            expose: true
+            access_type: property
+            type: string
+            serialized_name: client_id
+        userId:
+            expose: true
+            access_type: property
+            type: string
+            serialized_name: user_id
+        scopes:
+            expose: true
+            access_type: property
+            type: array
+            serialized_name: scopes

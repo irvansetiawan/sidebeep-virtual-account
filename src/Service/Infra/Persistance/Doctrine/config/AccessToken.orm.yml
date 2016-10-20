@@ -1,0 +1,32 @@
+Sidebeep\Service\Domain\Model\AccessToken:
+    type: entity
+    table: auth_access_token
+    repositoryClass: Sidebeep\Service\Infra\Repository\AccessTokenRepository
+    id:
+        id:
+            type: AccessTokenId
+    fields:
+        expiredAt:
+            type: datetime
+            column: expired_at
+        userId:
+            type: UserId
+            column: user_id
+            nullable: true
+    manyToOne:
+        client:
+            targetEntity: Sidebeep\Service\Domain\Model\Client
+            joinColumn:
+                name: client_id
+                referenceColumnName: id
+    manyToMany:
+        scopes:
+            targetEntity: Sidebeep\Service\Domain\Model\Scope
+            joinTable:
+                name: auth_access_tokens_scopes
+                joinColumn:
+                    access_token_id:
+                        referenceColumnName: id
+                inverseJoinColumn:
+                    scope_id:
+                        referenceColumnName: id

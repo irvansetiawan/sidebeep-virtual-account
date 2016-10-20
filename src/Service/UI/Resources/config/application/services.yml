@@ -1,0 +1,5 @@
+services:
+    service.application.user_authorization:
+        class: Sidebeep\Service\App\Service\UserAuthorization
+        arguments:
+            - '@service.infrastructure.user_authorization_gateway'

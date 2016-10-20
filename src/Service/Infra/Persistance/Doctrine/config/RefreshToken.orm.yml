@@ -1,0 +1,18 @@
+Sidebeep\Service\Domain\Model\RefreshToken:
+    type: entity
+    table: auth_refresh_token
+    repositoryClass: Sidebeep\Service\Infra\Repository\RefreshTokenRepository
+    id:
+        id:
+            type: RefreshTokenId
+    fields:
+        expiredAt:
+            type: datetime
+            column: expired_at
+    manyToOne:
+        accessToken:
+            targetEntity: Sidebeep\Service\Domain\Model\AccessToken
+            joinColumn:
+                name: access_token_id
+                referenceColumnName: id
+                onDelete: "SET NULL"
