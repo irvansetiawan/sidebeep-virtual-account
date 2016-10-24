@@ -1,6 +1,0 @@
-services:
-    service.controller.sample:
-        class: Sidebeep\Service\UI\Controller\SampleController
-        arguments:
-            - '@jms_serializer'
-            - '@service_container'

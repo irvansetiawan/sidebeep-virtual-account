@@ -1,3 +1,0 @@
-services:
-    service.handlers.sample_handler:
-        class: Sidebeep\Service\App\Handler\SampleHandler
