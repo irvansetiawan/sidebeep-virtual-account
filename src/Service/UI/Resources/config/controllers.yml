@@ -1,19 +1,6 @@
 services:
-    service.controller.token:
-        class: Sidebeep\Service\UI\Controller\TokenController
+    service.controller.sample:
+        class: Sidebeep\Service\UI\Controller\SampleController
         arguments:
-            - '@service.handlers.auth_handler'
-            - '@jms_serializer'
-
-    service.controller.authorize:
-        class: Sidebeep\Service\UI\Controller\AuthorizeController
-        arguments:
-            - '@service.handlers.auth_handler'
             - '@jms_serializer'
             - '@service_container'
-
-    service.controller.resource_server:
-        class: Sidebeep\Service\UI\Controller\ResourceServerController
-        arguments:
-            - '@service.handlers.auth_handler'
-            - '@jms_serializer'

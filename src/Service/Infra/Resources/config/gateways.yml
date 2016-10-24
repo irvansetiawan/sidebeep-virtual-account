@@ -1,11 +1,11 @@
 services:
-    service.infrastructure.user_authorization_gateway:
-        class: Sidebeep\Service\Infra\Service\UserAuthorization\UserAuthorizationGateway
+    service.infrastructure.sync_service_interaction_sample_gateway:
+        class: Sidebeep\Service\Infra\Service\SyncServiceInteractionSample\SyncServiceInteractionSampleGateway
         arguments:
-            - '@service.infrastructure.user_authorization_adapter'
+            - '@service.infrastructure.sync_service_interaction_sample_adapter'
 
-    service.infrastructure.user_authorization_adapter:
-        class: Sidebeep\Service\Infra\Service\UserAuthorization\UserAuthorizationAdapter
+    service.infrastructure.sync_service_interaction_sample_adapter:
+        class: Sidebeep\Service\Infra\Service\SyncServiceInteractionSample\SyncServiceInteractionSampleAdapter
         arguments:
-            - '@service.infrastructure.request_handler'
+            - '@request_handler'
             - 'https://api.sidebeep.com/user/authorize'

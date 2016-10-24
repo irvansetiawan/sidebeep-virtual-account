@@ -2,7 +2,7 @@
 
 namespace Sidebeep\Service\App\Subscriber;
 
-use Sidebeep\Service\Domain\Event\ClientCreated;
+use Sidebeep\Service\Domain\Event\SampleCreated;
 use Sidebeep\Service\Domain\Event\DomainEvent;
 
 /**
@@ -19,7 +19,7 @@ class ClientCreatedSubscriber extends ServiceEventSubscriber
      */
     public function isSubscribedTo(DomainEvent $event)
     {
-        return get_class($event) === ClientCreated::class;
+        return get_class($event) === SampleCreated::class;
     }
 
     /**

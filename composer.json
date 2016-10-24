@@ -8,14 +8,23 @@
             "email": "rudi.hermanto@tafern.com"
         }
     ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "git@github.com:tafern/sidebeep-service.git"
+        }
+    ],
     "require": {
         "vlucas/phpdotenv": "~2.0",
         "symfony/framework-bundle": "^3.1",
+        "symfony/monolog-bundle": "^2.8",
         "jms/serializer-bundle": "^1.1",
         "friendsofsymfony/rest-bundle": "^2.1",
         "simple-bus/symfony-bridge": "^4.1",
         "doctrine/doctrine-bundle": "^1.6",
-        "php-amqplib/rabbitmq-bundle": "^1.11"
+        "php-amqplib/rabbitmq-bundle": "^1.11",
+        "tafern/sidebeep-service": "dev-master",
+        "symfony/options-resolver": "^3.1"
     },
     "require-dev": {
         "phpunit/phpunit": "5.5.*",

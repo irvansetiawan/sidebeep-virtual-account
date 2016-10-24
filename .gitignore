@@ -26,8 +26,9 @@ bin/*
 # Assets managed by Bower
 /web/assets/vendor/
 
-# Composer PHAR
+# Composer
 /composer.phar
+composer.lock
 
 # dot ENV file
 .env

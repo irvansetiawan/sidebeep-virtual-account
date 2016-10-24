@@ -4,13 +4,7 @@ namespace Sidebeep\Service\Infra;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
-use Sidebeep\Service\Infra\Persistance\Doctrine\Types\AccessTokenId;
-use Sidebeep\Service\Infra\Persistance\Doctrine\Types\AuthCodeId;
-use Sidebeep\Service\Infra\Persistance\Doctrine\Types\ClientId;
-use Sidebeep\Service\Infra\Persistance\Doctrine\Types\GrantTypes;
-use Sidebeep\Service\Infra\Persistance\Doctrine\Types\RefreshTokenId;
-use Sidebeep\Service\Infra\Persistance\Doctrine\Types\ScopeId;
-use Sidebeep\Service\Infra\Persistance\Doctrine\Types\UserId;
+use Sidebeep\Service\Infra\Persistance\Doctrine\Types\SampleId;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
@@ -33,13 +27,7 @@ class InfrastructureBundle extends Bundle
      */
     private function registerDbalTypes()
     {
-        $this->registerDbalType('AccessTokenId', AccessTokenId::class, true);
-        $this->registerDbalType('AuthCodeId', AuthCodeId::class, true);
-        $this->registerDbalType('ClientId', ClientId::class, true);
-        $this->registerDbalType('RefreshTokenId', RefreshTokenId::class, true);
-        $this->registerDbalType('ScopeId', ScopeId::class, true);
-        $this->registerDbalType('UserId', UserId::class, true);
-        $this->registerDbalType('GrantTypes', GrantTypes::class, true);
+        $this->registerDbalType('UserId', SampleId::class, true);
     }
 
     /**

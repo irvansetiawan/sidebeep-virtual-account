@@ -1,22 +1,3 @@
 services:
-    service.handlers.auth_handler:
-        class: Sidebeep\Service\App\Handler\AuthHandler
-        arguments:
-            - '@service.infrastructure.authorization_server_service'
-            - '@service.infrastructure.resource_server_service'
-            - '@service.application.user_authorization'
-
-    service.handlers.user_handler:
-        class: Sidebeep\Service\App\Handler\UserHandler
-        arguments:
-            - '@service.infrastructure.user_repository'
-
-    service.handlers.client_handler:
-        class: Sidebeep\Service\App\Handler\ClientHandler
-        arguments:
-            - '@service.infrastructure.client_repository'
-
-    service.handlers.scope_handler:
-        class: Sidebeep\Service\App\Handler\Scopehandler
-        arguments:
-            - '@service.infrastructure.scope_repository'
+    service.handlers.sample_handler:
+        class: Sidebeep\Service\App\Handler\SampleHandler

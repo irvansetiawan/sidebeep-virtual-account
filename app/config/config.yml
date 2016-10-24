@@ -3,12 +3,8 @@ framework:
     router:
         resource: "%kernel.root_dir%/config/routing_%kernel.environment%.yml"
         strict_requirements: %kernel.debug%
-    templating:
-        engines: ['twig']
-    form: ~
     profiler:
         enabled: %kernel.debug%
-    validation: { enable_annotations: true }
 
 monolog:
     handlers:
@@ -21,18 +17,6 @@ monolog:
             path: "%kernel.logs_dir%/%kernel.environment%.log"
             level: debug
 
-twig:
-    paths:
-        '%kernel.root_dir%/../src/Service/UI/Resources/templates': templates
-
-assetic:
-    debug: "%kernel.debug%"
-    use_controller: '%kernel.debug%'
-    bundles:
-        [ PresentationBundle ]
-    filters:
-        cssrewrite: ~
-
 jms_serializer:
     property_naming:
         separator:  _
@@ -43,9 +27,6 @@ jms_serializer:
             Domain:
                 namespace_prefix: "Sidebeep\\Service\\UI\\Response"
                 path: "@PresentationBundle/Resources/config/presentation/serializer/"
-
-sensio_framework_extra:
-    view: { annotations: false }
 
 fos_rest:
     view:
@@ -68,30 +49,6 @@ fos_rest:
         default_format: json
         include_format: false
 
-# Doctrine Configuration
-doctrine:
-    dbal:
-        driver: pdo_mysql
-        host: "%database_host%"
-        port: "%database_port%"
-        dbname: "%database_name%"
-        user: "%database_user%"
-        password: "%database_password%"
-        charset: utf8mb4
-        default_table_options:
-            charset: utf8mb4
-            collate: utf8mb4_unicode_ci
-
-    orm:
-        auto_generate_proxy_classes: "%kernel.debug%"
-        naming_strategy: doctrine.orm.naming_strategy.underscore
-        auto_mapping: false
-        mappings:
-            InfrastructureBundle:
-                type: yml
-                dir: Persistance/Doctrine/config
-                prefix: Sidebeep\Service\Domain\Model
-
 old_sound_rabbit_mq:
     connections:
         default:
@@ -101,6 +58,7 @@ old_sound_rabbit_mq:
             password: "%messaging_server_password%"
             vhost:    '/'
 
+    // We only need Producer, all consumer is handled via CLI
     producers:
         service_event:
             class:            Sidebeep\Service\Infra\EventProcessing\EventProcessingProducer

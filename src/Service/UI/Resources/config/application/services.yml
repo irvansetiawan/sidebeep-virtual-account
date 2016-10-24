@@ -1,5 +1,5 @@
 services:
-    service.application.user_authorization:
-        class: Sidebeep\Service\App\Service\UserAuthorization
+    service.application.sync_service_interaction_sample:
+        class: Sidebeep\Service\App\Service\SyncServiceInteractionSample
         arguments:
-            - '@service.infrastructure.user_authorization_gateway'
+            - '@service.infrastructure.sync_service_interaction_sample_gateway'
