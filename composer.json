@@ -8,6 +8,11 @@
             "email": "rudi.hermanto@tafern.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Sidebeep\\": "src/"
+        }
+    },
     "repositories": [
         {
             "type": "git",
