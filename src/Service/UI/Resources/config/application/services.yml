@@ -1,0 +1,5 @@
+services:
+    service.application.sync_service_interaction_sample:
+        class: Sidebeep\Service\App\Service\SyncServiceInteractionSample
+        arguments:
+            - '@service.infrastructure.sync_service_interaction_sample_gateway'

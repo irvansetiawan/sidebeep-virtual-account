@@ -1,0 +1,66 @@
+framework:
+    secret: "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing_%kernel.environment%.yml"
+        strict_requirements: %kernel.debug%
+    profiler:
+        enabled: %kernel.debug%
+    templating: { engines: ['twig'] }
+
+monolog:
+    handlers:
+        main:
+            type: fingers_crossed
+            action_level: %monolog_action_level%
+            handler: nested
+        nested:
+            type: stream
+            path: "%kernel.logs_dir%/%kernel.environment%.log"
+            level: debug
+
+jms_serializer:
+    property_naming:
+        separator:  _
+        lower_case: true
+    metadata:
+        auto_detection: true
+        directories:
+            Domain:
+                namespace_prefix: "Sidebeep\\Service\\UI\\Response"
+                path: "@PresentationBundle/Resources/config/presentation/serializer/"
+
+fos_rest:
+    view:
+        view_response_listener: force
+    format_listener:
+        rules:
+            - { path: ^/, priorities: [ json ], fallback_format: json, prefer_extension: false }
+    exception:
+        enabled: true
+        codes:
+            'Symfony\Component\OptionsResolver\Exception\UndefinedOptionsException': HTTP_BAD_REQUEST
+            'Symfony\Component\OptionsResolver\Exception\NoSuchOptionException': HTTP_BAD_REQUEST
+            'Symfony\Component\OptionsResolver\Exception\OptionDefinitionException': HTTP_BAD_REQUEST
+            'Symfony\Component\OptionsResolver\Exception\MissingOptionsException': HTTP_BAD_REQUEST
+            'Symfony\Component\OptionsResolver\Exception\MissingOptionsException': HTTP_BAD_REQUEST
+    allowed_methods_listener: true
+    param_fetcher_listener: true
+    body_listener: false
+    routing_loader:
+        default_format: json
+        include_format: false
+
+old_sound_rabbit_mq:
+    connections:
+        default:
+            host:     "%messaging_server_host%"
+            port:     "%messaging_server_port%"
+            user:     "%messaging_server_user%"
+            password: "%messaging_server_password%"
+            vhost:    '/'
+
+    producers:
+        service_event:
+            class:            Sidebeep\Service\Infra\EventProcessing\EventProcessingProducer
+            connection:       default
+            exchange_options: { name: 'service-event', type: direct }

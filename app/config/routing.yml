@@ -1,0 +1,5 @@
+authorize:
+    path: /
+    defaults:
+        _controller: service.controller.sample:indexAction
+    methods: [GET]
