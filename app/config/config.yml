@@ -25,10 +25,9 @@ jms_serializer:
     metadata:
         auto_detection: true
         directories:
-            Domain:
-                namespace_prefix: "Sidebeep\\Service\\UI\\Response"
-                path: "@PresentationBundle/Resources/config/presentation/serializer/"
-
+            PresentationBundle:
+                namespace_prefix: "Sidebeep\\Service"
+                path: "@PresentationBundle/Resources/config/serializer"
 fos_rest:
     view:
         view_response_listener: force
@@ -38,14 +37,13 @@ fos_rest:
     exception:
         enabled: true
         codes:
-            'Symfony\Component\OptionsResolver\Exception\UndefinedOptionsException': HTTP_BAD_REQUEST
-            'Symfony\Component\OptionsResolver\Exception\NoSuchOptionException': HTTP_BAD_REQUEST
-            'Symfony\Component\OptionsResolver\Exception\OptionDefinitionException': HTTP_BAD_REQUEST
-            'Symfony\Component\OptionsResolver\Exception\MissingOptionsException': HTTP_BAD_REQUEST
-            'Symfony\Component\OptionsResolver\Exception\MissingOptionsException': HTTP_BAD_REQUEST
+            'SidebeepService\RequestAdapter\InvalidAttributesException': 422
+            'SidebeepService\Exception\Domain\DomainLevelInvalidAttributesException': 422
     allowed_methods_listener: true
     param_fetcher_listener: true
-    body_listener: false
+    body_listener:
+        decoders:
+            json: fos_rest.decoder.json
     routing_loader:
         default_format: json
         include_format: false
@@ -60,7 +58,24 @@ old_sound_rabbit_mq:
             vhost:    '/'
 
     producers:
-        service_event:
-            class:            Sidebeep\Service\Infra\EventProcessing\EventProcessingProducer
-            connection:       default
-            exchange_options: { name: 'service-event', type: direct }
+        billing:
+            connection: default
+            exchange_options: { name: 'billing', type: topic }
+        email_transaction:
+            connection: default
+            exchange_options: { name: 'email_notification', type: topic }
+
+doctrine_mongodb:
+    auto_generate_hydrator_classes: true
+    connections:
+        default:
+            server: "%mongodb_server%"
+            options: {}
+    default_database: sidebeep_billing
+    document_managers:
+        default:
+            mappings:
+                InfrastructureBundle:
+                    type: yml
+                    dir: Persistance/Doctrine/config
+                    prefix: Sidebeep\Service

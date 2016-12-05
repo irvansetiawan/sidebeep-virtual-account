@@ -1,3 +1,10 @@
 services:
-    service.handlers.sample_handler:
-        class: Sidebeep\Service\App\Handler\SampleHandler
+#    service.handlers.sample:
+#        class: Sidebeep\Service\App\Handler\Schedules\SchedulesAddHandler
+#        arguments:
+#            - '@service.repo.command.schedules_data'
+#            - '@service.repo.command.services'
+#            - '@service.repo.command.schedules'
+#            - '@event_recorder'
+#        tags:
+#            - { name: command_handler, handles: Sidebeep\Service\App\Command\Sample\SampleCommand}

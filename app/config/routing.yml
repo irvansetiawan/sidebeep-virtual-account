@@ -1,5 +1,5 @@
-authorize:
-    path: /
-    defaults:
-        _controller: service.controller.sample:indexAction
-    methods: [GET]
+#routing_name:
+#    path: /url/to/route/{sampleId}
+#    defaults:
+#        _controller: controller.service.name:action
+#    methods: [POST, PUT, GET, DELETE]

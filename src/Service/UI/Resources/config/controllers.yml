@@ -1,6 +1,9 @@
 services:
-    service.controller.sample:
-        class: Sidebeep\Service\UI\Controller\SampleController
+    service.controller.schedules:
+        class: Sidebeep\Service\UI\Controller\SchedulesController
         arguments:
-            - '@jms_serializer'
-            - '@service_container'
+            - '@service.repo.query.query_schedules'
+            - '@service.repo.query.query_schedules_data'
+            - '@service.repo.command.schedules_data'
+            - '@command_bus'
+            - '@fos_rest.view_handler'

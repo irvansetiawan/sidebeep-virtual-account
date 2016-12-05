@@ -1,0 +1,7 @@
+services:
+#    sample_subscriber:
+#        class: Sidebeep\Service\App\Subscriber\Sample\SampleSubscriber
+#        arguments:
+#            - '@service.repo.command.sample'
+#        tags:
+#            - { name: event_subscriber, subscribes_to: Sidebeep\Service\Domain\Event\Sample\SampleEvent}

@@ -1,0 +1,8 @@
+Sidebeep\Service\Domain\Model\SampleModel:
+    type: document
+    db: sample.db
+    collection: collection.sample.name
+    repositoryClass: Sidebeep\Service\Domain\Repository\Command\SampleModelRepository
+    fields:
+        sampleValueObject:
+            type: SampleValueObject

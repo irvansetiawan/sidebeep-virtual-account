@@ -1,1 +1,6 @@
 services:
+#    service.repo.command.sample:
+#        class: Sidebeep\Service\Infra\Repository\Command\SampleModelRepository
+#        factory: [ '@doctrine_mongodb',  getRepository]
+#        arguments:
+#            - Sidebeep\Service\Domain\Model\SampleModel
