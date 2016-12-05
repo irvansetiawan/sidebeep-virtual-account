@@ -6,7 +6,6 @@ use Symfony\Component\HttpKernel\Kernel;
 
 class ServiceKernel extends Kernel
 {
-
     /**
      * @inheritdoc
      */
@@ -20,18 +19,25 @@ class ServiceKernel extends Kernel
         }
 
         $bundles = [
+            // Symfony and Friends
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\MonologBundle\MonologBundle(),
-            new Symfony\Bundle\TwigBundle\TwigBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new FOS\RestBundle\FOSRestBundle(),
-            new SimpleBus\SymfonyBridge\SimpleBusCommandBusBundle(),
+            new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+            new Symfony\Bundle\TwigBundle\TwigBundle(),
             new OldSound\RabbitMqBundle\OldSoundRabbitMqBundle(),
             new SidebeepService\Bundles\SidebeepServiceBundle\SidebeepServiceBundle(),
+            new SimpleBus\SymfonyBridge\SimpleBusEventBusBundle(),
 
             // We need doctrine for persistance handling
-            // If you want to use monggo please change this to Doctrine ODM
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
+
+            // Mongodb bundle
+            new Doctrine\Bundle\MongoDBBundle\DoctrineMongoDBBundle(),
+
+            // Enable Command BUS
+            new SimpleBus\SymfonyBridge\SimpleBusCommandBusBundle(),
 
             // Enable Infrastructure Bundle
             new Sidebeep\Service\Infra\InfrastructureBundle(),

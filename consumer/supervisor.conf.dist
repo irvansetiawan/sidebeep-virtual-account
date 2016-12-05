@@ -1,0 +1,8 @@
+[program:program_name_for_identifier]
+command=/path/to/run.sh
+autostart=true
+autorestart=true
+stderr_logfile=/var/www/program-name.err.log
+stdout_logfile=/var/www/program-name.out.log
+startretries=5
+stopasgroup=true

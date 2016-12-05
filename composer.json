@@ -4,6 +4,10 @@
     "license": "proprietary",
     "authors": [
         {
+            "name": "Irvan Setiawan",
+            "email": "irvan.setiawan@tafern.com"
+        },
+        {
             "name": "Rudi Hermanto",
             "email": "rudi.hermanto@tafern.com"
         }
@@ -22,15 +26,25 @@
     "require": {
         "vlucas/phpdotenv": "~2.0",
         "symfony/framework-bundle": "^3.1",
+        "sensio/framework-extra-bundle": "^3.0.2",
         "symfony/monolog-bundle": "^2.8",
         "jms/serializer-bundle": "^1.1",
         "friendsofsymfony/rest-bundle": "^2.1",
         "simple-bus/symfony-bridge": "^4.1",
-        "doctrine/doctrine-bundle": "^1.6",
         "php-amqplib/rabbitmq-bundle": "^1.11",
         "tafern/sidebeep-service": "dev-master",
         "symfony/options-resolver": "^3.1",
-        "symfony/twig-bundle": "^3.1"
+        "symfony/twig-bundle": "^3.1",
+        "symfony/asset": "^3.1",
+        "symfony/form": "^3.1",
+        "symfony/validator": "^3.1",
+        "giggsey/libphonenumber-for-php": "^7.7",
+        "symfony/security-bundle": "^3.1",
+
+        "alcaeus/mongo-php-adapter": "^1.0",
+        "doctrine/doctrine-bundle": "^1.6",
+        "doctrine/mongodb-odm": "~1.0",
+        "doctrine/mongodb-odm-bundle": "~3.0"
     },
     "require-dev": {
         "phpunit/phpunit": "5.5.*",

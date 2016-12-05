@@ -27,5 +27,6 @@ class PresentationExtension extends Extension
         $loader->load('controllers.yml');
         $loader->load('application/handlers.yml');
         $loader->load('application/services.yml');
+        $loader->load('application/subscribers.yml');
     }
 }

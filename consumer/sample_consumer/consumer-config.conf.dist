@@ -1,0 +1,12 @@
+[rabbitmq]
+host        =
+username    =
+password    =
+vhost       = /
+port        = 5672
+queue       = queue_name
+compression = Off
+
+[logs]
+error = /var/www/app/var/logs/queue.error.log
+info  = /var/www/app/var/logs/queue.info.log
